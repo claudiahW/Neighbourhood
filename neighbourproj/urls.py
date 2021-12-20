@@ -1,4 +1,4 @@
-"""neighbourproj URL Configuration
+"""awardus URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.2/topics/http/urls/
@@ -13,9 +13,23 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
 from django.contrib import admin
-from django.urls import path
+from django.urls import path,include
+# from django.conf.urls import include,url
+from django.contrib.auth import views 
+from django_registration.backends.one_step.views import RegistrationView
+
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-]
+    path('',include('neighs.urls')),
+    # path('accounts/register/', RegistrationView.as_view(success_url='/create_profile'),
+    #     name='django_registration_register'),
+    # path('accounts/', include('django_registration.backends.one_step.urls')),
+    # path('accounts/', include('django.contrib.auth.urls')),
+    # path('logout/', views.logout_then_login, name='logout'), 
+    
+    
+] 
