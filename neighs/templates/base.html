@@ -13,7 +13,7 @@
 
   {% block styles %}
     {% bootstrap_css %}
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
     <link href="https://fonts.googleapis.com/css?family=Charmonman|Dancing+Script|Kodchasan|Spirax|Abril+Fatface" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
     <script src="https://kit.fontawesome.com/8637a3581a.js" crossorigin="anonymous"></script>
@@ -25,7 +25,8 @@
 <body>
     {% include "navbar.html" %}
 
-    {% block content %} <h1 class='text-center head' style=>Neighs</h1> {%endblock%}
+    {% block content %} <h1 class='text-center head' style=background-color:darkblue>Nyumba Kumi</h1> 
+    {%endblock%}
 
     {% block scripts %}
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
