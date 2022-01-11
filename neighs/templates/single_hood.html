@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+<style>
+    .image{
+        height: auto;
+        width: 100%;
+    }
+    .hood{
+        margin-top: 5%;
+    }
+</style>
+<div class="container hood">
+      <div class="hoods">
+          <div class="row">
+            <div class="col-md-6">
+                <img src="{{hood.neighs_image.url}}"class="image">
+            </div>
+            <div class="col-md-6">
+                <p>Neighborhood_Name: {{hood.name}}</p>
+                <p>Neighborhood_Description: {{ hood.description }}</p>
+                <p>Neighborhood_Count: {{hood.occupants_count}}</p>
+                <p>Police Conctact: {{hood.police_contact}}</p>
+                <p>Hospital Hotline: {{hood.hospital_hotline}}</p>
+                <p>Neighborhood_Location: {{ hood.location }}</p>
+                <p>Date Created: {{ hood.created_on|date }}</p>
+                <p>Date Updated: {{ hood.updated_on|date}}</p>
+            </div>
+            
+          </div>
+        
+    </div>
+   
+</div>
+
+
+{% endblock %}

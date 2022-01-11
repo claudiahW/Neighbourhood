@@ -1,0 +1,54 @@
+{%extends 'base.html'%}
+
+{% block content %}
+{{block.super}}
+
+<style>
+    .image {
+        height: auto;
+        width: 100%;
+    }
+
+    .hood {
+        
+        margin-top: 5%;
+    }
+</style>
+
+<div class="container" style="background-color:deeppink">
+
+    <div class="row">
+        {%for neighbor in hoods%}
+
+        <div class="col-md-4 mt-5">
+            <img src="{{neighbor.neighs_image.url}}" alt="" class="image">
+
+            <a href="{%url 'single_hood' neighbor.name %}">
+                <p class="hood">{{neighbor.name}}</p>
+            </a>
+            {{ neighbor.location }}
+            {{ neighbor.occupants_count }}
+
+            <p>{{neighbor.members.count}} Member{{neighbor.members.count|pluralize}}</p>
+
+            {% if request.user.profile.neighborhood == neighbor %}
+            <a href="{% url 'leave_hood' neighbor.id %}" class="btn btn-outline-danger btn-md">Leave {{neighbor.name}} Neighborhood?</a>
+
+
+            <a href="{%url 'single_hood' neighbor.name %}" class="btn btn-outline-success btn-md" style="float: left">
+                About
+                {{neighbor.name}}
+                Neighborhood
+            </a>
+            {% elif not request.user.profile.neighborhood %}
+            <a href="{% url 'join_hood' neighbor.id %}" class="btn btn-info btn-md">Join Neighborhood</a>
+            {% endif %}
+
+        </div>
+        {%endfor%}
+    </div>
+
+</div>
+
+
+{% endblock %}

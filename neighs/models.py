@@ -21,7 +21,7 @@ class Location(models.Model):
 class NeighborHood(models.Model):
     neighs_image=CloudinaryField('neighs_image', null=True)
     name = models.CharField(max_length=50)
-    location = models.ForeignKey(Location, on_delete=models.CASCADE)
+    location = models.ForeignKey(Location, on_delete=models.CASCADE,null=True)
     description =models.CharField(max_length=100,null=True)
     occupants_count = models.IntegerField(default=0)
     admin = models.ForeignKey(User, on_delete=models.CASCADE,null=True)

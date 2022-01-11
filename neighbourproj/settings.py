@@ -12,19 +12,18 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os 
-from pathlib import Path
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
-# import django_heroku
+import django_heroku
 import dj_database_url
 from decouple import config,Csv
 
-MODE=config("MODE", default="dev")
-SECRET_KEY = config('SECRET_KEY')
-DEBUG = os.environ.get('DEBUG', True)
 
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
+SECRET_KEY = config('SECRET_KEY')
+
+
+ALLOWED_HOSTS = ['*']
 
 cloudinary.config(
     cloud_name = config('CD_NAME'),
@@ -61,6 +60,7 @@ DEBUG = True
 
 INSTALLED_APPS = [
     'bootstrap4',
+    'cloudinary',
     'neighs',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -78,6 +78,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'neighbourproj.urls'
@@ -113,8 +114,8 @@ DATABASES = {
         
     }
 }
-db_from_env = dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(db_from_env)
+# db_from_env = dj_database_url.config(conn_max_age=500)
+# DATABASES['default'].update(db_from_env)
 
 
 # Password validation
@@ -163,3 +164,10 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Configure Django App for Heroku.
+django_heroku.settings(locals())
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+

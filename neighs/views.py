@@ -76,9 +76,9 @@ def create_hood(request):
 @login_required(login_url="/accounts/login/")
 def hoods(request):
     current_user = request.user
-    hood = NeighborHood.objects.all().order_by('-id')
+    hoods = NeighborHood.objects.all().order_by('-id')
 
-    context ={'hood':hood}
+    context ={'hoods':hoods}
     return render(request, 'hood/hood.html', context) 
 
 @login_required(login_url='/accounts/login/')
@@ -110,11 +110,14 @@ def create_business(request):
         if form.is_valid():
             business=form.save(commit=False)
             business.user=current_user
-            business.hoods= hoods 
+           
             business.save()
+
         return HttpResponseRedirect('/businesses')
     else:
+
         form=BusinessForm()
+
     return render (request,'create_business.html', {'form': form, 'profile': profile})
 
 
