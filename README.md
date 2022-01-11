@@ -64,8 +64,10 @@ python manage.py makemigrations photos
 Open the application on your browser `127.0.0.1:8000`.  
   
   
-## Technology used  
+## Technologies used  
   
+* [HTML]
+* [CSS]
 * [Python3.8]
 * [Django==3.2.9] 
 * [Heroku==7.59.1]
