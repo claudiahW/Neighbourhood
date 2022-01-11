@@ -11,12 +11,12 @@ class ProfileForm(ModelForm):
 class HoodForm(forms.ModelForm):
     class Meta:
         model = NeighborHood
-        fields = ['admin','occupants_count']
+        fields = ['neighs_image','location','description']
         
 class BusinessForm(forms.ModelForm):
     class Meta:
         model=Business
-        fields=['business_name','email','description','location','neighborhood']  
+        fields=['name','email','description','location','neighborhood']  
 
 class PostForm(forms.ModelForm):
     class Meta:

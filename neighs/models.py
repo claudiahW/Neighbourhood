@@ -74,7 +74,7 @@ class Profile(models.Model):
         instance.profile.save()
 
 class Business(models.Model):
-    business_name = models.CharField(max_length=50)
+    name = models.CharField(max_length=50)
     email = models.EmailField(max_length=50)
     description = models.TextField(blank=True, null=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -102,15 +102,15 @@ class Business(models.Model):
         business = cls.objects.get(id=id)
         return business
 
-    def _str_(self):
-        return self.business_name        
+    def __str__(self):
+        return self.name        
 
 class Category(models.Model):
     name = models.CharField(max_length=50)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
-    def _str_(self):
+    def __str__(self):
         return self.name        
  #Post model
 class Post(models.Model):
@@ -133,6 +133,6 @@ class Post(models.Model):
     def update_post(self):
         self.update()
 
-    def _str_(self):
+    def __str__(self):
         return self.title       
 
