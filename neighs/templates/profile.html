@@ -6,7 +6,7 @@
 <section class="profile container">
     <div class=" mt-5">
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-2">
                 <div class="card">
                     {% if profile.profile_pic %}
                     <img src="{{profile.profile_pic.url}}" alt="" class="card-img-top">
@@ -39,33 +39,35 @@
     </div>
    
     
+   <div class="col-md-2">
     <div class="details">
-        <div class="first">
-          <h3>{{user.username}}</h3>
-          {% if request.user is user %}  
-          <div>
-            <a href="{%url 'update_profile' user.id %}" class="btn btn-outline-primary mb-4">
-              Edit Profile
-            </a>
-          </div>
-          {% endif %}
-          <div>
-            <a href="{%url 'create_hood' %}" class="btn btn-outline-primary mb-4">
-              Create Neighborhood
-            </a>
-          </div>
-          <div>
-            <a href="{%url 'create_business' %}" class="btn btn-outline-primary mb-4">
-              Upload Business
-            </a>
-          </div>
-          <div>
-            <a href="{%url 'create_post' %}" class="btn btn-outline-primary mb-4">
-              Upload Post
-            </a>
-          </div>
+      <div class="first">
+        <h3>{{user.username}}</h3>
+        {% if request.user is user %}  
+        <div>
+          <a href="{%url 'update_profile' user.id %}" class="btn btn-outline-success mb-4">
+            Edit Profile
+          </a>
         </div>
-    </div>
+        {% endif %}
+        <div>
+          <a href="{%url 'create_hood' %}" class="btn btn-outline-success mb-4">
+            Create Neighborhood
+          </a>
+        </div>
+        <div>
+          <a href="{%url 'create_business' %}" class="btn btn-outline-success mb-4">
+            Upload Business
+          </a>
+        </div>
+        <div>
+          <a href="{%url 'create_post' %}" class="btn btn-outline-success mb-4">
+            Upload Post
+          </a>
+        </div>
+      </div>
+  </div>
+   </div>
        
         <div class="modal fade" id="showPicModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered mode" role="document">
