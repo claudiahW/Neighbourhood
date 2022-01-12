@@ -20,26 +20,26 @@
     <div class="row">
         {%for neighbor in hoods%}
 
-        <div class="col-md-4 mt-5">
+        <div class="col-md-4 mt-5" style="border-radius: 50%;">
             <img src="{{neighbor.neighs_image.url}}" alt="" class="image">
 
             <a href="{%url 'single_hood' neighbor.name %}">
                 <p class="hood">{{neighbor.name}}</p>
             </a>
             {{ neighbor.location }}
-             <p>Member{{neighbor.occupants_count|pluralize}}{{ neighbor.occupants_count }}</p>
+             <p>Member{{neighbor.occupants_count|pluralize}} ({{ neighbor.occupants_count }})</p>
 
             {% if request.user.profile.neighborhood == neighbor %}
-            <a href="{% url 'leave_hood' neighbor.id %}" class="btn btn-outline-danger btn-md">Leave {{neighbor.name}} Neighborhood?</a>
+            <a href="{% url 'leave_hood' neighbor.id %}" class="btn btn-outline-danger btn-md">Leave {{neighbor.name}}?</a>
 
 
             <a href="{%url 'single_hood' neighbor.name %}" class="btn btn-outline-success btn-md" style="float: left">
                 About
                 {{neighbor.name}}
-                Neighborhood
+                
             </a>
             {% elif not request.user.profile.neighborhood %}
-            <a href="{% url 'join_hood' neighbor.id %}" class="btn btn-info btn-md">Join Neighborhood</a>
+            <a href="{% url 'join_hood' neighbor.id %}" class="btn btn-info btn-md">Join {{neighbor.name}}</a>
             {% endif %}
 
         </div>

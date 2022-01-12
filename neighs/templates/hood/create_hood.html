@@ -16,7 +16,7 @@
     <form action="{%url 'create_hood'%}" method="post" enctype="multipart/form-data">
         {%csrf_token%}    
         {% bootstrap_form hood_form%}
-        <input type="submit" class="btn btn-success " value="Create Neighborhood">
+        <input type="submit" class="btn btn-info " value="Create Neighborhood">
     </form>
 </div>
 {% endblock %}
