@@ -27,8 +27,6 @@
                 <p class="hood">{{neighbor.name}}</p>
             </a>
             {{ neighbor.location }}
-            {{ neighbor.occupants_count }}
-
              <p>Member{{neighbor.occupants_count|pluralize}}{{ neighbor.occupants_count }}</p>
 
             {% if request.user.profile.neighborhood == neighbor %}
