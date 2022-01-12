@@ -29,7 +29,7 @@
             {{ neighbor.location }}
             {{ neighbor.occupants_count }}
 
-            <p>{{neighbor.members.count}} Member{{neighbor.members.count|pluralize}}</p>
+            <p>{{neighbor.members.count}} Member{{neighbor.occupant_count|pluralize}}</p>
 
             {% if request.user.profile.neighborhood == neighbor %}
             <a href="{% url 'leave_hood' neighbor.id %}" class="btn btn-outline-danger btn-md">Leave {{neighbor.name}} Neighborhood?</a>
