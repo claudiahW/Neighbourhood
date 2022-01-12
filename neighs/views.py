@@ -12,6 +12,9 @@ def index(request):
     
     return render(request,'index.html')
 
+def menu(request):
+    
+    return render(request,'menu.html')
 
 @login_required(login_url='/accounts/login/')
 def profile(request):
