@@ -61,7 +61,7 @@ class Profile(models.Model):
   location = models.ForeignKey(Location, on_delete=models.CASCADE,null=True)
   neighborhood = models.ForeignKey(NeighborHood, on_delete=models.CASCADE,null=True)
 
-  def _str_(self):
+  def __str__(self):
         return f'{self.user.username} profile'
 
   @receiver(post_save, sender=User)
